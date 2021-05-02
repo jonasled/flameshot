@@ -22,7 +22,7 @@ env:
   DOCKER_REPO: flameshotorg/ci-building-images
   PACKPACK_REPO: flameshot-org/packpack
   # available upload services: wetransfer.com, file.io, 0x0.st
-  UPLOAD_SERVICE: wetransfer.com
+  UPLOAD_SERVICE: 0x0.st
 
 jobs:
   deb-pack:
