@@ -1,2 +1,2 @@
 # Flameshot
-This is a flameshot fork with a custom upload backend. To use it you have to set up flameshotUpload on your Server and customize flameshot client before compiling in src/tools/imgur/ line 128
+This is a flameshot fork, which supports self hosted server fpr uploads. For Building please check [README_client.md](README_client.md). On the Server, please upload `index.php` and create a folder called `img`. I also recommend to change the upload key in the file. Afterwards you can setup your server in the flameshot config gui, which you can call by executing `flameshot config`
