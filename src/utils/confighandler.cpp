@@ -492,9 +492,7 @@ void ConfigHandler::setHistoryConfirmationToDelete(const bool check)
 
 QString ConfigHandler::uploadServerURL()
 {
-    return m_settings
-      .value(QStringLiteral("uploadServerURL"))
-      .toString();
+    return m_settings.value(QStringLiteral("uploadServerURL")).toString();
 }
 
 void ConfigHandler::setUploadServerURL(const QString& serverName)
@@ -505,9 +503,7 @@ void ConfigHandler::setUploadServerURL(const QString& serverName)
 
 QString ConfigHandler::serverKey()
 {
-    return m_settings
-      .value(QStringLiteral("serverKey"))
-      .toString();
+    return m_settings.value(QStringLiteral("serverKey")).toString();
 }
 
 void ConfigHandler::setServerKey(const QString& serverName)

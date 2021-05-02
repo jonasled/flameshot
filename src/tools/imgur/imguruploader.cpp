@@ -129,8 +129,8 @@ void ImgurUploader::upload()
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader,
                       "application/application/x-www-form-urlencoded");
-    request.setRawHeader(
-      "flameshot-auth", ConfigHandler().serverKey().toUtf8());
+    request.setRawHeader("flameshot-auth",
+                      ConfigHandler().serverKey().toUtf8());
 
     m_NetworkAM->post(request, byteArray);
 }
@@ -154,21 +154,15 @@ void ImgurUploader::onUploadOk()
 
     m_copyUrlButton = new QPushButton(tr("Copy URL"));
     m_openUrlButton = new QPushButton(tr("Open URL"));
-    m_openDeleteUrlButton = new QPushButton(tr("Delete image"));
     m_toClipboardButton = new QPushButton(tr("Image to Clipboard."));
     m_hLayout->addWidget(m_copyUrlButton);
     m_hLayout->addWidget(m_openUrlButton);
-    m_hLayout->addWidget(m_openDeleteUrlButton);
     m_hLayout->addWidget(m_toClipboardButton);
 
     connect(
       m_copyUrlButton, &QPushButton::clicked, this, &ImgurUploader::copyURL);
     connect(
       m_openUrlButton, &QPushButton::clicked, this, &ImgurUploader::openURL);
-    connect(m_openDeleteUrlButton,
-            &QPushButton::clicked,
-            this,
-            &ImgurUploader::openDeleteURL);
     connect(m_toClipboardButton,
             &QPushButton::clicked,
             this,
@@ -187,11 +181,6 @@ void ImgurUploader::copyURL()
 {
     QApplication::clipboard()->setText(m_imageURL.toString());
     m_notification->showMessage(tr("URL copied to clipboard."));
-}
-
-void ImgurUploader::openDeleteURL()
-{
-
 }
 
 void ImgurUploader::copyImage()

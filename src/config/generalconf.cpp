@@ -424,7 +424,7 @@ void GeneralConf::initUploadServerURL()
       QStringLiteral("color: %1").arg(foreground));
 
     connect(m_uploadServerURL,
-            SIGNAL(textChanged(const QString &)),
+            SIGNAL(textChanged(const QString&)),
             this,
             SLOT(uploadServerURLChanged(const QString&)));
 
@@ -448,11 +448,10 @@ void GeneralConf::initImageServerKey()
 
     m_serverKey = new QLineEdit(this);
     QString foreground = this->palette().windowText().color().name();
-    m_serverKey->setStyleSheet(
-      QStringLiteral("color: %1").arg(foreground));
+    m_serverKey->setStyleSheet(QStringLiteral("color: %1").arg(foreground));
 
     connect(m_serverKey,
-            SIGNAL(textChanged(const QString &)),
+            SIGNAL(textChanged(const QString&)),
             this,
             SLOT(imageServerKeyChanged(const QString&)));
 
