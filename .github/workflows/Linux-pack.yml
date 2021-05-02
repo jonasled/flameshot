@@ -145,7 +145,7 @@ jobs:
           esac
           cp -r $GITHUB_WORKSPACE/packaging/debian $GITHUB_WORKSPACE
           bash $GITHUB_WORKSPACE/tools/packpack
-          mv $GITHUB_WORKSPACE/build/${PRODUCT}_*.deb $GITHUB_WORKSPACE/build/${PRODUCT}_${{ matrix.dist.name }}.${{ matrix.dist.arch }}.deb
+          cp $GITHUB_WORKSPACE/build/${PRODUCT}*.deb $GITHUB_WORKSPACE/build/${PRODUCT}_${{ matrix.dist.name }}.${{ matrix.dist.arch }}.deb
       - name: In order to unset the registered formats, and unload the binaries
         env:
           DOCKER_ARCH: ${{ matrix.dist.arch }}
