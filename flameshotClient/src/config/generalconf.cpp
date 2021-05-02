@@ -34,7 +34,7 @@ GeneralConf::GeneralConf(QWidget* parent)
     initCopyPathAfterSave();
     initUseJpgForClipboard();
     initSaveAfterCopy();
-    initUploadHistoryMaxSize();
+    initUploadServerURL();
 
     // this has to be at the end
     initConfigButtons();
@@ -53,7 +53,7 @@ void GeneralConf::updateComponents()
     m_saveAfterCopy->setChecked(config.saveAfterCopyValue());
     m_copyPathAfterSave->setChecked(config.copyPathAfterSaveEnabled());
     m_useJpgForClipboard->setChecked(config.useJpgForClipboard());
-    m_uploadHistoryMaxSize->setValue(config.uploadHistoryMaxSizeValue());
+    m_uploadServerURL->setText(config.uploadServerURL());
 
     if (!config.savePath().isEmpty()) {
         m_savePath->setText(config.savePath());
@@ -181,7 +181,7 @@ void GeneralConf::setActualFormData()
     m_screenshotPathFixedCheck->setChecked(config.savePathFixed());
     m_historyConfirmationToDelete->setChecked(
       config.historyConfirmationToDelete());
-    m_uploadHistoryMaxSize->setValue(config.uploadHistoryMaxSizeValue());
+    m_uploadServerURL->setText(config.uploadServerURL());
     m_useJpgForClipboard->setChecked(config.useJpgForClipboard());
 }
 
@@ -405,9 +405,9 @@ void GeneralConf::historyConfirmationToDelete(bool checked)
     ConfigHandler().setHistoryConfirmationToDelete(checked);
 }
 
-void GeneralConf::initUploadHistoryMaxSize()
+void GeneralConf::initUploadServerURL()
 {
-    QGroupBox* box = new QGroupBox(tr("Latest Uploads Max Size"));
+    QGroupBox* box = new QGroupBox(tr("Flameshot image Server"));
     box->setFlat(true);
     m_layout->addWidget(box);
     m_layout->addStretch();
@@ -415,26 +415,22 @@ void GeneralConf::initUploadHistoryMaxSize()
     QVBoxLayout* vboxLayout = new QVBoxLayout();
     box->setLayout(vboxLayout);
 
-    int max = ConfigHandler().uploadHistoryMaxSizeValue();
-
-    m_uploadHistoryMaxSize = new QSpinBox(this);
-    m_uploadHistoryMaxSize->setMaximum(1000);
-    m_uploadHistoryMaxSize->setValue(max);
+    m_uploadServerURL = new QLineEdit(this);
     QString foreground = this->palette().windowText().color().name();
-    m_uploadHistoryMaxSize->setStyleSheet(
+    m_uploadServerURL->setStyleSheet(
       QStringLiteral("color: %1").arg(foreground));
 
-    connect(m_uploadHistoryMaxSize,
-            SIGNAL(valueChanged(int)),
+    connect(m_uploadServerURL,
+            SIGNAL(textChanged(const QString &)),
             this,
-            SLOT(uploadHistoryMaxSizeChanged(int)));
+            SLOT(uploadServerURLChanged(const QString&)));
 
-    vboxLayout->addWidget(m_uploadHistoryMaxSize);
+    vboxLayout->addWidget(m_uploadServerURL);
 }
 
-void GeneralConf::uploadHistoryMaxSizeChanged(int max)
+void GeneralConf::uploadServerURLChanged(const QString& serverName)
 {
-    ConfigHandler().setUploadHistoryMaxSize(max);
+    ConfigHandler().setUploadServerURL(serverName);
 }
 
 void GeneralConf::initUseJpgForClipboard()

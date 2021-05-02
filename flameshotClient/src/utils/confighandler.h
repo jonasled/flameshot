@@ -75,8 +75,8 @@ public:
     bool historyConfirmationToDelete();
     void setHistoryConfirmationToDelete(const bool save);
 
-    int uploadHistoryMaxSizeValue();
-    void setUploadHistoryMaxSize(const int);
+    QString uploadServerURL();
+    void setUploadServerURL(const QString& serverName);
 
     bool saveAfterCopyValue();
     void setSaveAfterCopy(const bool);

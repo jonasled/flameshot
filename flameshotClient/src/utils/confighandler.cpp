@@ -490,18 +490,16 @@ void ConfigHandler::setHistoryConfirmationToDelete(const bool check)
     m_settings.setValue(QStringLiteral("historyConfirmationToDelete"), check);
 }
 
-int ConfigHandler::uploadHistoryMaxSizeValue()
+QString ConfigHandler::uploadServerURL()
 {
-    int max = 25;
-    if (m_settings.contains(QStringLiteral("uploadHistoryMax"))) {
-        max = m_settings.value(QStringLiteral("uploadHistoryMax")).toInt();
-    }
-    return max;
+    return m_settings
+      .value(QStringLiteral("uploadServerURL"))
+      .toString();
 }
 
-void ConfigHandler::setUploadHistoryMaxSize(const int max)
+void ConfigHandler::setUploadServerURL(const QString& serverName)
 {
-    m_settings.setValue(QStringLiteral("uploadHistoryMax"), max);
+    m_settings.setValue(QStringLiteral("uploadServerURL"), serverName);
 }
 
 bool ConfigHandler::saveAfterCopyValue()

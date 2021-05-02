@@ -125,7 +125,7 @@ void ImgurUploader::upload()
     QBuffer buffer(&byteArray);
     m_pixmap.save(&buffer, "PNG");
 
-    QUrl url(QStringLiteral("http://localhost:1234"));
+    QUrl url(ConfigHandler().uploadServerURL());
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader,
                       "application/application/x-www-form-urlencoded");
