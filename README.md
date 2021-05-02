@@ -52,6 +52,7 @@
 
 ## Index
 
+- [About this Fork](#about-this-fork)
 - [Features](#features)
 - [Usage](#usage)
   - [CLI configuration](#cli-configuration)
@@ -82,13 +83,16 @@
 - [Contribute](#contribute)
 - [Acknowledgment](#acknowledgment)
 
+## About this Fork
+This Fork is modified to upload Images to a custom server instead of imgur. To host the server yourself, upload the index.php and create a folder img. Afterwards you can enter the server and the key in the flameshot config. 
+
 ## Features
 
 - Customizable appearance.
 - Easy to use.
 - In-app screenshot editing.
 - DBus interface.
-- Upload to Imgur.
+- Upload to custom Server.
 
 ## Usage
 
