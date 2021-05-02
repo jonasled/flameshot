@@ -4,7 +4,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
 }
 
 //check if flameshot header is present
-if ($_SERVER['HTTP_AUTHORIZATION'] != "uploadedByFlameshot") {
+if ($_SERVER['HTTP_FLAMESHOT_AUTH'] != "uploadedByFlameshot") {
     die("Forbidden");
 }
 
