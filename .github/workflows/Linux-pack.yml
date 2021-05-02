@@ -572,7 +572,7 @@ jobs:
           echo ${last_committed_tag:1}
           echo "Details: ${last_committed_tag}+git${git_revno}.${git_hash}"
           echo "================================"
-          export VERSION=1.0
+          echo "VERSION=v1.0"
       - name: Packaging snap
         uses: snapcore/action-build@v1
         id: snapcraft
