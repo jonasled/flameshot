@@ -49,7 +49,7 @@ parts:
     configflags:
       - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
       - '-DCMAKE_INSTALL_PREFIX=/usr'
-    source: https://github.com/flameshot-org/flameshot.git
+    source: https://gitlab.jonasled.de/jonasled/flameshot
     source-type: git
     override-pull: |
       snapcraftctl pull
