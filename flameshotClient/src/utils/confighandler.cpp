@@ -502,6 +502,19 @@ void ConfigHandler::setUploadServerURL(const QString& serverName)
     m_settings.setValue(QStringLiteral("uploadServerURL"), serverName);
 }
 
+
+QString ConfigHandler::serverKey()
+{
+    return m_settings
+      .value(QStringLiteral("serverKey"))
+      .toString();
+}
+
+void ConfigHandler::setServerKey(const QString& serverName)
+{
+    m_settings.setValue(QStringLiteral("serverKey"), serverName);
+}
+
 bool ConfigHandler::saveAfterCopyValue()
 {
     return m_settings.value(QStringLiteral("saveAfterCopy")).toBool();

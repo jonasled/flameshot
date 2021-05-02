@@ -30,6 +30,7 @@ private slots:
     void autostartChanged(bool checked);
     void historyConfirmationToDelete(bool checked);
     void uploadServerURLChanged(const QString& serverName = "");
+    void imageServerKeyChanged(const QString& serverName = "");
     void saveAfterCopyChanged(bool checked);
     void changeSavePath();
     void importConfiguration();
@@ -47,6 +48,7 @@ private:
     void initShowTrayIcon();
     void initHistoryConfirmationToDelete();
     void initUploadServerURL();
+    void initImageServerKey();
     void initConfigButtons();
     void initCheckForUpdates();
     void initAutostart();
@@ -79,4 +81,5 @@ private:
     QCheckBox* m_historyConfirmationToDelete;
     QCheckBox* m_useJpgForClipboard;
     QLineEdit* m_uploadServerURL;
+    QLineEdit* m_serverKey;
 };

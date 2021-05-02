@@ -35,6 +35,7 @@ GeneralConf::GeneralConf(QWidget* parent)
     initUseJpgForClipboard();
     initSaveAfterCopy();
     initUploadServerURL();
+    initImageServerKey();
 
     // this has to be at the end
     initConfigButtons();
@@ -54,6 +55,7 @@ void GeneralConf::updateComponents()
     m_copyPathAfterSave->setChecked(config.copyPathAfterSaveEnabled());
     m_useJpgForClipboard->setChecked(config.useJpgForClipboard());
     m_uploadServerURL->setText(config.uploadServerURL());
+    m_serverKey->setText(config.serverKey());
 
     if (!config.savePath().isEmpty()) {
         m_savePath->setText(config.savePath());
@@ -182,6 +184,7 @@ void GeneralConf::setActualFormData()
     m_historyConfirmationToDelete->setChecked(
       config.historyConfirmationToDelete());
     m_uploadServerURL->setText(config.uploadServerURL());
+    m_serverKey->setText(config.serverKey());
     m_useJpgForClipboard->setChecked(config.useJpgForClipboard());
 }
 
@@ -407,7 +410,7 @@ void GeneralConf::historyConfirmationToDelete(bool checked)
 
 void GeneralConf::initUploadServerURL()
 {
-    QGroupBox* box = new QGroupBox(tr("Flameshot image Server"));
+    QGroupBox* box = new QGroupBox(tr("Flameshot image server"));
     box->setFlat(true);
     m_layout->addWidget(box);
     m_layout->addStretch();
@@ -431,6 +434,34 @@ void GeneralConf::initUploadServerURL()
 void GeneralConf::uploadServerURLChanged(const QString& serverName)
 {
     ConfigHandler().setUploadServerURL(serverName);
+}
+
+void GeneralConf::initImageServerKey()
+{
+    QGroupBox* box = new QGroupBox(tr("Flameshot image server key"));
+    box->setFlat(true);
+    m_layout->addWidget(box);
+    m_layout->addStretch();
+
+    QVBoxLayout* vboxLayout = new QVBoxLayout();
+    box->setLayout(vboxLayout);
+
+    m_serverKey = new QLineEdit(this);
+    QString foreground = this->palette().windowText().color().name();
+    m_serverKey->setStyleSheet(
+      QStringLiteral("color: %1").arg(foreground));
+
+    connect(m_serverKey,
+            SIGNAL(textChanged(const QString &)),
+            this,
+            SLOT(imageServerKeyChanged(const QString&)));
+
+    vboxLayout->addWidget(m_serverKey);
+}
+
+void GeneralConf::imageServerKeyChanged(const QString& key)
+{
+    ConfigHandler().setServerKey(key);
 }
 
 void GeneralConf::initUseJpgForClipboard()

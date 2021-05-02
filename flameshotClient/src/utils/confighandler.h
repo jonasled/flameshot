@@ -78,6 +78,9 @@ public:
     QString uploadServerURL();
     void setUploadServerURL(const QString& serverName);
 
+    QString serverKey();
+    void setServerKey(const QString& serverName);
+
     bool saveAfterCopyValue();
     void setSaveAfterCopy(const bool);
 
