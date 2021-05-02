@@ -130,7 +130,7 @@ void ImgurUploader::upload()
     request.setHeader(QNetworkRequest::ContentTypeHeader,
                       "application/application/x-www-form-urlencoded");
     request.setRawHeader("flameshot-auth",
-                      ConfigHandler().serverKey().toUtf8());
+                         ConfigHandler().serverKey().toUtf8());
 
     m_NetworkAM->post(request, byteArray);
 }
