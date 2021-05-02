@@ -500,7 +500,6 @@ void ConfigHandler::setUploadServerURL(const QString& serverName)
     m_settings.setValue(QStringLiteral("uploadServerURL"), serverName);
 }
 
-
 QString ConfigHandler::serverKey()
 {
     return m_settings.value(QStringLiteral("serverKey")).toString();
