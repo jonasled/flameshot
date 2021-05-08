@@ -707,7 +707,7 @@ Drücke die Leertaste um das Seitenmenü zu öffnen.</translation>
     <message>
         <location filename="../../src/tools/imgur/imguruploader.cpp" line="39"/>
         <source>Upload to Imgur</source>
-        <translation>Zu Imgur hochladen</translation>
+        <translation>Zu Bildserver hochladen</translation>
     </message>
     <message>
         <location filename="../../src/tools/imgur/imguruploader.cpp" line="53"/>
@@ -761,7 +761,7 @@ Drücke die Leertaste um das Seitenmenü zu öffnen.</translation>
     <message>
         <location filename="../../src/tools/imgur/imguruploadertool.cpp" line="34"/>
         <source>Upload the selection to Imgur</source>
-        <translation>Auswahl zu Imgur hochladen</translation>
+        <translation>Auswahl hochladen</translation>
     </message>
 </context>
 <context>
