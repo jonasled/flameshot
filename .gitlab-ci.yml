@@ -1,0 +1,14 @@
+build-ubuntu:
+  image: gitlab.jonasled.de/jonasled/builddockerimage:latest
+  stage: build
+  before_script:
+    - apt-get update
+    - apt-get install -y g++ cmake build-essential qt5-default qttools5-dev-tools libqt5svg5-dev qttools5-dev git openssl ca-certificates
+  script:
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make
+  artifacts:
+    paths:
+      - build
